@@ -1,11 +1,14 @@
-from config.argument_parser import set_arguments
+from config.argument_parser import SetArguments
 from logic.tts_service import TextToSpeechService
 from logic.file_manager import FileManager
 
 
+parser = SetArguments()
+
+
 class Client:
     def __init__(self):
-        self.parser = set_arguments()
+        self.parser = parser.start()
         self.args = self.parser.parse_args()
 
     def start(self):

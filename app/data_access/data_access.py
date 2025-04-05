@@ -4,8 +4,7 @@ from ..config import AUDIO_DIR, SYNTHESIZER_PARAMS
 
 
 class DataAccess:
-    @staticmethod
-    def save_audio(text: str, filename: str = None) -> str:
+    def save_audio(self, text: str, filename: str = None) -> str:
         engine = pyttsx3.init()
         engine.setProperty("rate", SYNTHESIZER_PARAMS["rate"])
         engine.setProperty("volume", SYNTHESIZER_PARAMS["volume"])
@@ -18,8 +17,7 @@ class DataAccess:
         engine.runAndWait()
         return str(filepath)
 
-    @staticmethod
-    def update_param(param: str, value) -> bool:
+    def update_param(self, param: str, value) -> bool:
         if param in SYNTHESIZER_PARAMS:
             SYNTHESIZER_PARAMS[param] = value
             return True
